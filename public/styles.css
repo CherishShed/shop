@@ -1,0 +1,175 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+h1{
+    text-align: center;
+    background-color: rgba(255, 255, 255,0.6);
+    backdrop-filter: blur(5px);
+    color: brown;
+    position: fixed;
+    top:0;
+    width: 100%;
+    padding: 5px;
+    margin:0;
+    z-index: 3;
+}
+main{
+    margin-top: 5%;
+    padding: 10px 50px;
+    background-color: beige;
+}
+.queries{
+    display: flex;
+    width: 100%;
+    gap:10%
+}
+
+#search{
+    display: block;
+    position: relative;
+    margin:0 auto;
+    width: 50%;
+    top: 30px;
+}
+.category-button{
+    position: relative;
+    left: 20%;
+    top: 30px;
+    padding: 5px;
+    font-size: 2.2rem;
+}
+.category-radios{
+    width: 20%;
+    position: fixed;
+    left:0;
+    top: 55px;
+    z-index: 3;
+    display:block;
+    transform: translateX(-300px);
+    height: 100%;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+.collapse{
+    background-color: rgba(210, 105, 30,0.4);
+    backdrop-filter: blur(5px);
+    transform: translateX(0px);
+    transition: all 1s;
+    height: 100%;
+    /* transition: all 1s; */
+}
+.radios{
+    display: flex;
+    flex-direction: column;
+    
+}
+.category-radios input{
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+
+.close{
+    position: absolute;
+    top:2%;
+    right: 5%;
+    color: red;
+}
+.deck {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap:20px;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255,0.5);
+
+    border-radius: 50px;
+    padding: 20px;
+    /* justify-content: center; */
+    margin-top: 40px;
+    /* padding-left: 30px; */
+    width: 100%;
+    
+}
+
+.deck .card:hover {
+    box-shadow: 8px 8px 38px 2px rgb(121, 57, 11);
+}
+
+.deck .card {
+    /* background-image: url(images/vanilla.jpg); */
+    word-wrap: normal;
+    height: 300px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+
+.deck .card-header{
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+.deck .card-body{
+    width: 100%;
+    height: 250px;
+    padding: 0;
+    margin: 0;
+}
+.deck .card-body img{
+    /* position: relative; */
+    width: 100%;
+    height: 200px;
+    aspect-ratio: 1 1;
+}
+.deck .card-footer{
+    height: 100px;
+    width: 100%;
+    padding: 5px;
+    background-color:rgb(53, 27, 8);
+}
+.deck .card-footer button, button{
+    background-color: chocolate;
+    color: white;
+}
+.price {
+    float: right;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.modal-footer{
+    background-color: rgb(53, 27, 8);
+    width: 100%;
+}
+.modal-footer p{
+    position: absolute;
+    float: left;
+    left: 5%;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@media (max-width: 500px) {
+    .collapse{
+        width: 100%;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .category-radios{
+        /* display: block; */
+        margin: 0 auto;
+    }
+    .category-button{
+        font-size: 1.2rem;
+        padding: 2px;
+    }
+}

@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,800;0,900;1,900&family=Ubuntu&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/79094805a6.js" crossorigin="anonymous"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <title>Assignment</title>
+</head>
+
+<body>
+    <!-- , fruits shoes sports grocery acessories electronics clothing -->
+
+    <h1>Shedi<span class="query">Query</span></h1>
+    <main>
+        <div class="queries">
+            <button type="button" class="btn category-button btn-outline-dark btn-light"><i
+                    class="fa-solid fa-filter"></i></button>
+            <input type="text" placeholder="Search" id="search">
+        </div>
+
+        <div class="category-radios">
+            <h2>Filter By</h2>
+            <div class=" radios">
+                <span class="close radio-side">X</span>
+                <label for=""><input type="radio" name="category" value="Furniture"> Furniture</label>
+                <label><input type="radio" name="category" value="Fruits"> Fruits</label>
+                <label for=""><input type="radio" name="category" value="Shoes"> Shoes</label>
+                <label for=""><input type="radio" name="category" value="Sports"> Sports</label>
+                <label for=""><input type="radio" name="category" value="Grocery"> Grocery</label>
+                <label for=""><input type="radio" name="category" value="Acessories"> Acessories</label>
+                <label for=""><input type="radio" name="category" value="Electronics"> Electronics</label>
+                <label for=""><input type="radio" name="category" value="Clothing"> Clothing</label>
+            </div>
+            <button class="btn btn-light clear-sel ">Clear Filter</button>
+        </div>
+        <div class="deck">
+            <% items.forEach(item=>{%>
+                <div class="card products">
+                    <h3 class="card-header bg-white">
+                        <%=item.Name %>
+                    </h3>
+                    <div class="card-body container-fluid">
+                        <img src=<%=item.image %> alt="">
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-category sr-only">
+                            <%= item.Category %>
+                        </p>
+                        <p class="price text-white">
+                            <%= item.Price %>
+                        </p>
+                        <button type="button" class="btn btn-lg btn-block btn-outline-light view" data-id=<%=item.id
+                            %>>View</button>
+                    </div>
+                </div>
+                <% })%>
+        </div>
+    </main>
+    <section>
+        <% items.forEach(item=> { %>
+            <div class="modal fade" id='modal<%=item.id %>'>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="bg-white modal-title modal-name">
+                                <%= item.Name %>
+                            </h3>
+                            <button type="button" class="close" data-dismiss="modal">X</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <img src=<%=item.image %> alt="image" class=col-6>
+                                <p class="col-6 modal-text">
+                                    <%= item["Product Description"] %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <p class="modal-price float-left">
+                                <%= item.Price %>
+                            </p>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="dom.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
