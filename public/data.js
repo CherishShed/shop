@@ -116,6 +116,7 @@ let x = 1;
 items.forEach(item => {
     item["picture"] = `./images/${item.Name.toLowerCase()}.jpg`
     item["id"] = x;
+    item['rating'] = Math.round(Math.random() * 5)
     x++;
 })
 

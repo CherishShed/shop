@@ -137,19 +137,25 @@ $(document).ready(() => {
         filterItems();
     })
     $(".category-button").click(() => {
-        $(".category-radios").addClass("collapse");
+        $(".category-radios").addClass("collapsing");
     })
 
     $(".radio-side").click(() => {
-        $(".category-radios").removeClass("collapse");
+        $(".category-radios").removeClass("collapsing");
     })
 
     $('.view').click(function () {
         let id = $(this).data('id');
         $(`#modal${id}`).modal();
     })
+    AOS.init({
+        duration: 500,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false,
+        delay: 0
+    });
+    new PureCounter();
 });
-
-
 
 

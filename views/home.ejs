@@ -1,0 +1,202 @@
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <!-- , fruits shoes sports grocery acessories electronics clothing -->
+        <!-- <img src="https://cdn.pixabay.com/photo/2016/04/18/13/53/room-1336497_960_720.jpg" alt="image" class="backdrop"> -->
+        <%- include('./partials/nav.ejs') %>
+            <section class="hero overlay">
+                <div class="hero-overlay overlay">
+                    <h1 class="hero-head" data-aos="flip-up">Shopping And Department Store</h1>
+                    <p class="hero-text" data-aos="zoom-out-down">Choose among a variety of items that are carefully
+                        selected to fit your taste
+                    </p>
+
+                    <a href="/shop" class="btn btn-light shop" role="button">Jump In</a>
+                </div>
+            </section>
+
+            <section class="categories">
+                <h2 data-aos="fade-right">Shop Our Top Categories</h2>
+                <div class="deck">
+                    <% cat.forEach(item=>{%>
+                        <div class="category-card" data-aos="flip-up">
+                            <div class="overlay"></div>
+                            <h5>
+                                <%=item.name %>
+                            </h5>
+                            <img src=<%=item.background %> alt="">
+                        </div>
+
+                        <% })%>
+                </div>
+
+            </section>
+
+            <section class="top-deals" id="deals">
+                <h2 data-aos="fade-right">Today's Best Deals For You!</h2>
+                <div class="deal-cards" data-aos="zoom-in-up">
+                    <% items.forEach(item=>{%>
+                        <div class="card products">
+                            <div class="card-body container-fluid">
+                                <img src=<%=item.image %> alt="">
+                            </div>
+                            <div class="card-footer">
+                                <h3 class="card-name">
+                                    <%=item.Name %>
+                                </h3>
+                                <p class="card-category sr-only">
+                                    <%= item.Category %>
+                                </p>
+                                <p class="rating">
+                                    <% for( let i=0; i < item.rating; i++ ) { %>
+                                        <i class="fa-solid fa-star" style="color: #776420;"></i>
+                                        <% } %>
+                                </p>
+                                <p class="price">
+                                    <%= item.Price %>
+                                </p>
+                                <button type="button" class="btn btn-outline-dark add-cart" data-id=<%=item.id%>>Add to
+                                    Cart</button>
+                            </div>
+                        </div>
+                        <% })%>
+                </div>
+
+
+            </section>
+            <section>
+                <% items.forEach(item=> { %>
+                    <div class="modal fade" id='modal<%=item.id %>'>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="bg-white modal-title modal-name">
+                                        <%= item.Name %>
+                                    </h3>
+                                    <button type="button" class="close" data-dismiss="modal">X</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <img src=<%=item.image %> alt="image" class=col-6>
+                                        <p class="col-6 modal-text">
+                                            <%= item["Product Description"] %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <p class="modal-price float-left">
+                                        <%= item.Price %>
+                                    </p>
+                                    <button type="button" class="btn btn-outline-light add-cart">Add to Cart</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </section>
+            <section class="statistics">
+                <div class="row counters" data-aos="zoom-in-up">
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="2"
+                            class="purecounter"></span>
+                        <p>Years</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="33" data-purecounter-duration="2"
+                            class="purecounter"></span>
+                        <p>Stores</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="130" data-purecounter-duration="2"
+                            class="purecounter"></span>
+                        <p>Hours Of Support</p>
+                    </div>
+
+                    <div class="col-lg-3 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="34" data-purecounter-duration="2"
+                            class="purecounter"></span>
+                        <p>Partners</p>
+                    </div>
+                </div>
+            </section>
+            <section class="giveaway" data-aos="fade-up">
+                <div class="giveaway-text" data-aos="zoom-out-up">
+                    <h2>Get 5% Cash Back On Orders Above N5000</h2>
+                    <p>We are running a promo to give back to our dear customers. Cash-in NOW!!! </p>
+                    <button class="btn btn-outline-light">Learn More</button>
+                </div>
+            </section>
+            <section class="login-overlay" id="modal-form">
+                <div class="loginForm row">
+                    <button class="close">X</button>
+                    <div class="col-sm-6 login-img">
+                        <img src="https://media.istockphoto.com/id/1254508881/photo/woman-holding-sale-shopping-bags-consumerism-shopping-lifestyle-concept.jpg?s=612x612&w=0&k=20&c=wuS3z6nPQkMM3_wIoO67qQXP-hfXkxlBc2sedwh-hxc="
+                            alt="img" class="img2">
+                    </div>
+                    <div class="col-sm-6 inputSide">
+                        <h2>Welcome Back : )</h2>
+                        <p>Please enter your correct details below and enter into the realm of goodness</p>
+
+                        <form action="" class="login-form">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+                                </div>
+                                <input type="email" placeholder="Email address">
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                </div>
+                                <input type="password" placeholder="Password" id="password">
+                            </div>
+                            <button class="btn btn-outline-dark">Login</button>
+
+                            <p>Are you new here? <a href="" class="signup">Sign Up</a></p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <%- include("partials/footer.ejs") %>
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous"></script>
+                <script>
+                    $('.view').click(function () {
+                        let id = $(this).data('id');
+                        $(`#modal${id}`).modal();
+                    })
+                    $(".account").click(function () {
+                        $("#modal-form").show(500);
+                        $("#modal-form").css("display", "flex");
+                    });
+                    $(".close").click(function () {
+                        $("#modal-form").hide(200)
+                    })
+                    AOS.init({
+                        duration: 500,
+                        easing: "ease-in-out",
+                        once: true,
+                        mirror: false,
+                        delay: 0
+                    });
+                    new PureCounter();
+
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous"></script>
+                <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+                <!-- <script src="dom.js" type="module"></script> -->
+    </body>
+
+</html>
