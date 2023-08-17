@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
     res.render("home", { root: `${__dirname}/views`, items, title: "ShediQuery", cat, style: "home.css" })
 })
 
-app.listen(8081, () => {
+app.listen(8084, () => {
     console.log("server started")
     // items.forEach(item => {
     //     console.log(item);
